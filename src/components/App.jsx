@@ -15,7 +15,7 @@ class App extends React.Component {
 			<div>
 				<Header />
 
-				<div className="ui main container">
+				<div className="ui main text container">
 					<div className="ui piled segment">
 						{this.props.children}
 					</div>
