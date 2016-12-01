@@ -3,11 +3,11 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import App from './components/App';
-import Main from './components/Main';
-import About from './components/About';
+import App from './containers/App';
+import Main from './containers/Main';
+import About from './containers/About';
 
-import NotFound from './components/errors/NotFound';
+import NotFound from './containers/errors/NotFound';
 
 const routes = (
 	<Route path="/" component={App}>

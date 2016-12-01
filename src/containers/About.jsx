@@ -1,8 +1,11 @@
 'use strict';
 
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 
-class About extends React.Component {
+import RepositoryList from './RepositoryList';
+
+class About extends Component {
 	render() {
 		return(
 			<div>
@@ -14,9 +17,11 @@ class About extends React.Component {
 					<li><a href="https://twitter.com/sapphire_dev">@sapphire_dev</a></li>
 					<li><a href="https://keybase.io/sapphire">keybase.io/sapphire</a></li>
 				</ul>
+				<h4>projects</h4>
+				<RepositoryList />
 			</div>
 		);
 	}
 }
 
-export default About;
+export default connect()(About);

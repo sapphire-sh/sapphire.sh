@@ -5,14 +5,17 @@ import { Server } from 'http';
 
 import Express from 'express';
 import React from 'react';
+import { createStore } from 'redux';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import createHistory from 'react-router/lib/createMemoryHistory';
+import { Provider } from 'react-redux';
 
 import HTML from './helpers/HTML';
 
+import reducers from './reducers';
 import routes from './routes';
-
-import NotFound from './components/errors/NotFound';
 
 const app = new Express();
 const server = new Server(app);
@@ -20,7 +23,11 @@ const server = new Server(app);
 app.use(Express.static(path.resolve(__dirname, '../dist')));
 
 app.get('*', (req, res) => {
-	match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+	const memoryHistory = createHistory(req.originalUrl);
+	const store = createStore(memoryHistory, reducers);
+	const history = syncHistoryWithStore(memoryHistory, store);
+
+	match({ history, routes, location: req.url }, (err, redirectLocation, renderProps) => {
 		if(err) {
 			return res.status(500).send(err.message);
 		}
@@ -29,7 +36,9 @@ app.get('*', (req, res) => {
 		}
 		else if(renderProps) {
 			const component = (
-				<RouterContext {...renderProps} />
+				<Provider store={store}>
+					<RouterContext {...renderProps} />
+				</Provider>
 			);
 
 			res.status(200).send(`<!DOCTYPE html>\n${renderToString(<HTML assets={webpackIsomorphicTools.assets()} component={component} />)}`);

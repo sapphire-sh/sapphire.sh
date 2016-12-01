@@ -1,15 +1,16 @@
 'use strict';
 
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import Header from './Header';
-import Footer from './Footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 import 'semantic-ui-css/semantic.min.css';
 import '../styles/App.css';
 
-class App extends React.Component {
+class App extends Component {
 	render() {
 		return (
 			<div>
@@ -27,4 +28,4 @@ class App extends React.Component {
 	}
 }
 
-export default App;
+export default connect()(App);
