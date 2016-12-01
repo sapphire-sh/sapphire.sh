@@ -1,11 +1,13 @@
 'use strict';
 
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
 import repositories from './repositories';
 
 const reducers = combineReducers({
-	repositories
+	repositories,
+	routing: routerReducer
 });
 
-export default repositories;
+export default reducers;

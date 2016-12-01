@@ -5,12 +5,13 @@ import { Server } from 'http';
 
 import Express from 'express';
 import React from 'react';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { renderToString } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import createHistory from 'react-router/lib/createMemoryHistory';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
 import HTML from './helpers/HTML';
 
@@ -24,7 +25,7 @@ app.use(Express.static(path.resolve(__dirname, '../dist')));
 
 app.get('*', (req, res) => {
 	const memoryHistory = createHistory(req.originalUrl);
-	const store = createStore(memoryHistory, reducers);
+	const store = createStore(reducers, applyMiddleware(thunk));
 	const history = syncHistoryWithStore(memoryHistory, store);
 
 	match({ history, routes, location: req.url }, (err, redirectLocation, renderProps) => {

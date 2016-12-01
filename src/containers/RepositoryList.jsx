@@ -9,14 +9,14 @@ class RepositoryList extends Component {
 	render() {
 		const {
 			repositories
-		} = this.props;
+		} = this.props.repositories;
 
 		return (
 			<ul>
 				{
 					repositories.map((repository) => {
 						return (
-							<Repository key={repository.id} title={repository.title} description={repository.description} />
+							<Repository key={repository.id} repository={repository} />
 						);
 					})
 				}
@@ -26,7 +26,7 @@ class RepositoryList extends Component {
 }
 
 RepositoryList.propTypes = {
-	repositories: PropTypes.array.isRequired,
+	repositories: PropTypes.object.isRequired,
 	dispatch: PropTypes.func.isRequired
 };
 

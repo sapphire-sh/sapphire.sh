@@ -4,18 +4,25 @@ import React, { PropTypes } from 'react';
 
 class Repository extends React.Component {
 	render() {
+		const {
+			name,
+			description,
+			html_url
+		} = this.props.repository;
+
 		return (
 			<li>
-				{title}
+				<a href={html_url}>{name}</a>
+				<ul>
+					<li>{description}</li>
+				</ul>
 			</li>
 		);
 	}
 }
 
 Repository.propTypes = {
-	id: PropTypes.number.isRequired,
-	title: PropTypes.string.isRequired,
-	description: PropTypes.string.isRequired
+	repository: PropTypes.object.isRequired
 };
 
 export default Repository;

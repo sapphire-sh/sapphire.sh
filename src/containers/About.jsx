@@ -3,10 +3,20 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
+import { fetchRepositories } from '../actions';
+
 import RepositoryList from './RepositoryList';
 
 class About extends Component {
+	componentWillMount() {
+		const { dispatch } = this.props;
+
+		dispatch(fetchRepositories());
+	}
+
 	render() {
+		const { repositories } = this.props;
+
 		return(
 			<div>
 				<h2>about</h2>
@@ -18,7 +28,7 @@ class About extends Component {
 					<li><a href="https://keybase.io/sapphire">keybase.io/sapphire</a></li>
 				</ul>
 				<h4>projects</h4>
-				<RepositoryList />
+				<RepositoryList repositories={repositories} />
 			</div>
 		);
 	}
