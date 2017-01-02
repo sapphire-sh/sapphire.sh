@@ -16,7 +16,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 render(
 	<Provider store={store}>
-		<Router history={history} routes={routes} />
+		<Router history={history} routes={routes} onUpdate={() => window.scrollTo(0, 0)} />
 	</Provider>,
 	document.getElementById('app')
 );

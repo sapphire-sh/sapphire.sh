@@ -1,6 +1,6 @@
 'use strict';
 
-require('isomorphic-fetch');
+import fetch from 'isomorphic-fetch';
 
 export const REQUEST_REPOSITORIES = 'REQUEST_REPOSITORIES';
 export const RECEIVE_REPOSITORIES = 'RECEIVE_REPOSITORIES';

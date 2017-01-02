@@ -5,16 +5,12 @@ import {
 	RECEIVE_REPOSITORIES
 } from '../actions';
 
-const repositories = (state = {
-	repositories: []
-}, action) => {
+const repositories = (state = [], action) => {
 	switch(action.type) {
 		case REQUEST_REPOSITORIES:
 			return state;
 		case RECEIVE_REPOSITORIES:
-			return Object.assign({}, state, {
-				repositories: action.repositories
-			});
+			return action.repositories;
 		default:
 			return state;
 	}

@@ -9,7 +9,7 @@ class RepositoryList extends Component {
 	render() {
 		const {
 			repositories
-		} = this.props.repositories;
+		} = this.props;
 
 		return (
 			<ul>
@@ -26,7 +26,7 @@ class RepositoryList extends Component {
 }
 
 RepositoryList.propTypes = {
-	repositories: PropTypes.object.isRequired,
+	repositories: PropTypes.array.isRequired,
 	dispatch: PropTypes.func.isRequired
 };
 
