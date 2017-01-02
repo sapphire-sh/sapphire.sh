@@ -1,0 +1,4 @@
+{
+	"name": "sapphire.sh",
+	"script": "./src/main.js"
+}
