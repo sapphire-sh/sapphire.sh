@@ -2,32 +2,30 @@
 
 import fetch from 'isomorphic-fetch';
 
-export const REQUEST_REPOSITORIES = 'REQUEST_REPOSITORIES';
-export const RECEIVE_REPOSITORIES = 'RECEIVE_REPOSITORIES';
+export const REQUEST_ARTICLE = 'REQUEST_ARTICLE';
+export const RECEIVE_ARTICLE = 'RECEIVE_ARTICLE';
 
-export function requestRepositories() {
+export function requestArticle() {
 	return {
-		type: REQUEST_REPOSITORIES
+		type: REQUEST_ARTICLE
 	};
 };
 
-export function receiveRepositories(repositories) {
+export function receiveArticle(article) {
 	return {
-		type: RECEIVE_REPOSITORIES,
-		repositories
+		type: RECEIVE_ARTICLE,
+		article
 	};
 };
 
-export function fetchRepositories() {
+export function fetchArticle(filename) {
 	return (dispatch) => {
-		dispatch(requestRepositories());
+		dispatch(requestArticle());
 
-		return fetch(`https://api.github.com/users/sapphiredev/repos`)
-		.then((res) => {
-			return res.json();
-		})
+		return fetch(`/apis/articles/${filename}`)
+		.then(res => res.json())
 		.then((json) => {
-			dispatch(receiveRepositories(json));
+			dispatch(receiveArticle(json));
 		});
 	};
 };

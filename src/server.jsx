@@ -18,10 +18,14 @@ import HTML from './helpers/HTML';
 import reducers from './reducers';
 import routes from './routes';
 
+import apis from './apis';
+
 const app = new Express();
 const server = new Server(app);
 
 app.use(Express.static(path.resolve(__dirname, '../dist')));
+
+app.use('/apis', apis);
 
 app.get('*', (req, res) => {
 	const memoryHistory = createHistory(req.originalUrl);

@@ -1,37 +1,44 @@
 'use strict';
 
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchRepositories } from '../actions';
+import { fetchArticle } from '../actions';
 
-import RepositoryList from './RepositoryList';
+import marked from 'marked';
 
-class About extends Component {
+class About extends React.Component {
 	componentWillMount() {
 		const { dispatch } = this.props;
 
-		dispatch(fetchRepositories());
+		dispatch(fetchArticle('about.md'));
 	}
 
 	render() {
-		const { repositories } = this.props;
+		const { article } = this.props;
 
 		return(
-			<div>
-				<h2>about</h2>
-				<h3>sapphire</h3>
-				<h4>contacts</h4>
-				<ul>
-					<li><a href="mailto:info@sapphire.sh">info@sapphire.sh</a></li>
-					<li><a href="https://twitter.com/sapphire_dev">@sapphire_dev</a></li>
-					<li><a href="https://keybase.io/sapphire">keybase.io/sapphire</a></li>
-				</ul>
-				<h4>projects</h4>
-				<RepositoryList repositories={repositories} />
-			</div>
+			<div dangerouslySetInnerHTML={{__html: marked(article)}} />
 		);
 	}
 }
 
-export default connect()(About);
+About.propTypes = {
+	article: PropTypes.string.isRequired,
+	dispatch: PropTypes.func.isRequired
+};
+
+export default connect((state) => {
+	const { article } = state.article;
+
+	if(article === undefined) {
+		return {
+			article: ''
+		};
+	}
+	else {
+		return {
+			article
+		};
+	}
+})(About);
