@@ -1,2 +1,1 @@
-# sapphire.sh
-https://www.sapphire.sh/
+# sapphiredev.github.io

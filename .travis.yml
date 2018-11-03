@@ -1,0 +1,20 @@
+language: node_js
+
+node_js:
+  - "node"
+
+sudo: false
+
+script:
+  - npm run build
+
+notifications:
+  email: false
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: false
+  on:
+    branch: master
