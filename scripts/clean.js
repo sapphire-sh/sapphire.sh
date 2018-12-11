@@ -5,6 +5,8 @@ const files = [
 	'dist',
 	'404.html',
 	'index.html',
+	'about',
+	'archives',
 	'articles',
 	'categories',
 ];
