@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.html",
   "scripts": {
+    "clean": "node ./scripts/clean.js",
+    "prebuild": "npm run clean",
     "build": "webpack",
-    "watch": "webpack-dev-server",
+    "generate": "node ./dist/main.js",
+    "watch": "webpack --watch",
     "lint": "tslint -p ./tsconfig.json"
   },
   "repository": {
@@ -21,10 +24,15 @@
   "devDependencies": {
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
+    "@types/react-router": "^4.4.2",
     "css-loader": "^1.0.1",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.4",
     "raw-loader": "^0.5.1",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-markdown": "^4.0.3",
+    "react-router": "^4.3.1",
     "sass-loader": "^7.1.0",
     "scss-loader": "0.0.1",
     "ts-loader": "^5.3.0",
@@ -35,9 +43,5 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   },
-  "dependencies": {
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-markdown": "^4.0.3"
-  }
+  "dependencies": {}
 }

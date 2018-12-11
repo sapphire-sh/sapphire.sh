@@ -44,7 +44,8 @@
       180
     ],
     "no-console": false,
-    "jsx-no-multiline-js": false
+    "jsx-no-multiline-js": false,
+    "jsx-no-lambda": false
   },
   "linterOptions": {
     "exclude": [

@@ -8,7 +8,9 @@ export class ArticleListComponent extends React.Component {
 	public render() {
 		return (
 			<div>
-				{__article_ids.map((e) => {
+				{__pages.filter((page) => {
+					return page.startsWith('articles');
+				}).map((e) => {
 					return (
 						<ArticleComponent
 							key={e}

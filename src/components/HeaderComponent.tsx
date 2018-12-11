@@ -1,5 +1,9 @@
 import React from 'react';
 
+import {
+	getBaseURL,
+} from '~/helpers';
+
 import './HeaderComponent.scss';
 
 export class HeaderComponent extends React.Component {
@@ -12,7 +16,7 @@ export class HeaderComponent extends React.Component {
 					id="header_section_a"
 				>
 					<a
-						href="/"
+						href={getBaseURL()}
 					>
 						{'sapphire.sh'}
 					</a>
@@ -21,12 +25,12 @@ export class HeaderComponent extends React.Component {
 					id="header_section_b"
 				>
 					<a
-						href="/about"
+						href={`${getBaseURL()}/about`}
 					>
 						{'about'}
 					</a>
 					<a
-						href="/archives"
+						href={`${getBaseURL()}/archives`}
 					>
 						{'archives'}
 					</a>

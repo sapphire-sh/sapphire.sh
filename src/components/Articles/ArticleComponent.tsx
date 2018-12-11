@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ReactMarkdown from 'react-markdown';
+import { getBaseURL } from '~/helpers';
 
 interface ComponentProps {
 	id: string;
@@ -14,32 +15,36 @@ export class ArticleComponent extends React.Component<ComponentProps, ComponentS
 	constructor(props: ComponentProps) {
 		super(props);
 
-		this.state = {
-			'text': '',
-		};
-	}
-
-	public async componentDidMount() {
 		const {
 			id,
 		} = this.props;
 
-		const text = (await import(`${__articles_path}/${id}/index.md`)).default;
+		const text = (require(`${__pages_path}/${id}/index.md`));
 
-		this.setState({
+		this.state = {
 			'text': text,
-		});
+		};
 	}
 
 	public render() {
+		const {
+			id,
+		} = this.props;
 		const {
 			text,
 		} = this.state;
 
 		return (
-			<ReactMarkdown
-				source={text}
-			/>
+			<div>
+				<a
+					href={`${getBaseURL()}/${id}`}
+				>
+					{'1234'}
+				</a>
+				<ReactMarkdown
+					source={text}
+				/>
+			</div>
 		);
 	}
 }

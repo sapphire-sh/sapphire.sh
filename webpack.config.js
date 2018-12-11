@@ -7,14 +7,34 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const env = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
-const articlesPath = path.resolve(__dirname, './articles');
-const articleIDs = fs.readdirSync(articlesPath);
+const distPath = path.resolve(__dirname, './dist');
+
+const pagesPath = path.resolve(__dirname, './_pages');
+function getPages(parentPath, file) {
+	const directoryPath = file === undefined ? parentPath : path.resolve(parentPath, file);
+	const stat = fs.lstatSync(directoryPath);
+	if(stat.isDirectory()) {
+		return fs.readdirSync(directoryPath).map((file) => {
+			return getPages(directoryPath, file);
+		}).filter((e) => {
+			return e !== null;
+		}).reduce((a, b) => {
+			return a.concat(b);
+		}, []);
+	}
+	if(file === 'index.md') {
+		return [
+			path.relative(pagesPath, parentPath),
+		];
+	}
+	return null;
+}
+const pages = getPages(pagesPath);
 
 module.exports = {
 	'entry': path.resolve(__dirname, 'src', 'index.tsx'),
 	'output': {
-		'path': path.resolve(__dirname, 'assets'),
-		'publicPath': '/assets',
+		'path': distPath,
 		'filename': 'main.js',
 	},
 	'module': {
@@ -63,14 +83,20 @@ module.exports = {
 		new webpack.DefinePlugin({
 			'__dev': process.env.NODE_ENV === 'development',
 			'__test': process.env.NODE_ENV === 'test',
-			'__articles_path': JSON.stringify(articlesPath),
-			'__article_ids': JSON.stringify(articleIDs),
+			'__travis': process.env.TRAVIS === 'true',
+			'__dist_path': JSON.stringify(distPath),
+			'__pages': JSON.stringify(pages),
+			'__pages_path': JSON.stringify(pagesPath),
 		}),
 		new MiniCssExtractPlugin({
 			'filename': 'styles.css',
 		}),
 		new webpack.ProgressPlugin(),
 	],
+	'target': 'node',
+	'node': {
+		'__dirname': true,
+	},
 	'mode': env,
 	'devServer': {
 		'watchContentBase': true,
