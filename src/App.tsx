@@ -1,9 +1,13 @@
 import React from 'react';
 
+import {
+	MainComponent,
+} from './components';
+
 export class App extends React.Component {
 	public render() {
 		return (
-			<div>1234</div>
+			<MainComponent />
 		);
 	}
 }

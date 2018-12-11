@@ -1,31 +1,40 @@
 {
-  "name": "sapphiredev.github.io",
+  "name": "sapphire.sh",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "watch": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sapphiredev/sapphiredev.github.io.git"
+    "url": "git+https://github.com/sapphiredev/sapphire.sh.git"
   },
   "author": "sapphire",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sapphiredev/sapphiredev.github.io/issues"
+    "url": "https://github.com/sapphiredev/sapphire.sh/issues"
   },
-  "homepage": "https://github.com/sapphiredev/sapphiredev.github.io#readme",
+  "homepage": "https://github.com/sapphiredev/sapphire.sh#readme",
   "devDependencies": {
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
+    "css-loader": "^1.0.1",
+    "mini-css-extract-plugin": "^0.4.4",
+    "node-sass": "^4.9.4",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^7.1.0",
+    "scss-loader": "0.0.1",
     "ts-loader": "^5.3.0",
     "typescript": "^3.1.6",
     "webpack": "^4.24.0",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "react-markdown": "^4.0.3"
   }
 }

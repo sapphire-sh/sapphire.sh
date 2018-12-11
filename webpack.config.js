@@ -2,6 +2,8 @@ const path = require('path');
 
 const webpack = require('webpack');
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const env = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 
 module.exports = {
@@ -17,6 +19,26 @@ module.exports = {
 				'test': /\.tsx?$/,
 				'use': [
 					'ts-loader',
+				],
+			},
+			{
+				'test': /\.s?css$/,
+				'use': [
+					{
+						'loader': MiniCssExtractPlugin.loader,
+					},
+					{
+						'loader': 'css-loader',
+					},
+					{
+						'loader': 'sass-loader',
+					},
+				],
+			},
+			{
+				'test': /\.md$/,
+				'use': [
+					'raw-loader',
 				],
 			},
 		],
@@ -35,7 +57,16 @@ module.exports = {
 			'__dev': process.env.NODE_ENV === 'development',
 			'__test': process.env.NODE_ENV === 'test',
 		}),
+		new MiniCssExtractPlugin({
+			'filename': 'styles.css',
+		}),
 		new webpack.ProgressPlugin(),
 	],
 	'mode': env,
+	'devServer': {
+		'watchContentBase': true,
+		'host': 'localhost',
+		'port': 8016,
+		'open': true,
+	},
 };
