@@ -28,7 +28,7 @@ export class ArticleComponent extends React.Component<ComponentProps, ComponentS
 
 		this.setState({
 			'text': text,
-		});;
+		});
 	}
 
 	public render() {

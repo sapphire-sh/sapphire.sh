@@ -15,6 +15,6 @@ export class MainComponent extends React.Component {
 
 				<ArticleListComponent />
 			</div>
-		)
+		);
 	}
 }
