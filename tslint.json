@@ -43,6 +43,7 @@
       true,
       180
     ],
+    "no-shadowed-variable": false,
     "no-console": false,
     "jsx-no-multiline-js": false,
     "jsx-no-lambda": false

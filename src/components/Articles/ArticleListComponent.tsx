@@ -4,13 +4,21 @@ import {
 	ArticleComponent,
 } from '~/components';
 
-export class ArticleListComponent extends React.Component {
+interface ComponentProps {
+	pages: string[];
+}
+
+export class ArticleListComponent extends React.Component<ComponentProps> {
 	public render() {
+		const {
+			pages,
+		} = this.props;
+
 		return (
 			<div>
-				{__pages.filter((page) => {
+				{pages.filter((page) => {
 					return page.startsWith('articles/');
-				}).map((e, i, a) => {
+				}).reverse().map((e, i, a) => {
 					return (
 						<ArticleComponent
 							key={e}

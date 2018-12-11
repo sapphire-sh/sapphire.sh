@@ -6,13 +6,19 @@ import {
 
 import './MainComponent.scss';
 
-export class MainComponent extends React.Component {
+interface ComponentProps {
+	pages: string[];
+}
+
+export class MainComponent extends React.Component<ComponentProps> {
 	public render() {
 		return (
 			<div
 				id="main"
 			>
-				<ArticleListComponent />
+				<ArticleListComponent
+					{...this.props}
+				/>
 			</div>
 		);
 	}

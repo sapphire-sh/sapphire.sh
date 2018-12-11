@@ -17,7 +17,9 @@ import {
 
 import './AppContainer.scss';
 
-type ComponentProps = RouteComponentProps;
+interface ComponentProps extends RouteComponentProps {
+	pages: string[];
+}
 
 class AppComponent extends React.Component<ComponentProps> {
 	public render() {
@@ -30,7 +32,14 @@ class AppComponent extends React.Component<ComponentProps> {
 					<Route
 						exact={true}
 						path={'/'}
-						component={MainComponent}
+						render={(props) => {
+							return (
+								<MainComponent
+									{...this.props}
+									{...props}
+								/>
+							);
+						}}
 					/>
 					<Route
 						exact={true}
