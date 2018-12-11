@@ -14,6 +14,7 @@ export class FooterComponent extends React.Component {
 					<p>
 						<a
 							href="https://twitter.com/sapphire_dev"
+							target="_blank"
 						>
 							{'@sapphire_dev'}
 						</a>
@@ -21,6 +22,7 @@ export class FooterComponent extends React.Component {
 					<p>
 						<a
 							href="https://github.com/sapphiredev/sapphire.sh"
+							target="_blank"
 						>
 							<i
 								className="icon icon_github"
@@ -35,6 +37,7 @@ export class FooterComponent extends React.Component {
 						{'Powered by '}
 						<a
 							href="https://pages.github.com/"
+							target="_blank"
 						>
 							{'GitHub Pages'}
 						</a>

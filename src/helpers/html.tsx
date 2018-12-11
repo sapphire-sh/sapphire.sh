@@ -25,9 +25,6 @@ export class HTML extends React.Component<ComponentProps> {
 					<meta
 						charSet="utf-8"
 					/>
-					<base
-						target="_blank"
-					/>
 					<link
 						href="https://fonts.googleapis.com/css?family=Lato"
 						rel="stylesheet"
