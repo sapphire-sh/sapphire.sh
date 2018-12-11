@@ -16,7 +16,7 @@ export class HeaderComponent extends React.Component {
 					id="header_section_a"
 				>
 					<a
-						href={getBaseURL()}
+						href={`${getBaseURL()}/`}
 					>
 						{'sapphire.sh'}
 					</a>
