@@ -4,7 +4,9 @@ import {
 	MainComponent,
 } from '~/components';
 
-export class App extends React.Component {
+import './AppContainer.scss';
+
+export class AppContainer extends React.Component {
 	public render() {
 		return (
 			<MainComponent />

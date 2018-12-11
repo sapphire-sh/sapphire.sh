@@ -5,14 +5,15 @@ import {
 	HeaderComponent,
 } from '~/components';
 
-import '~/styles/MainComponent.scss';
+import './MainComponent.scss';
 
 export class MainComponent extends React.Component {
 	public render() {
 		return (
-			<div>
+			<div
+				id="main"
+			>
 				<HeaderComponent />
-
 				<ArticleListComponent />
 			</div>
 		);

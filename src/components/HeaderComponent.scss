@@ -1,0 +1,29 @@
+#header {
+	display: flex;
+	justify-content: space-between;
+	padding: 12px 0;
+	border-bottom: 1px solid black;
+
+	&_section_a {
+		a {
+			margin-right: 12px;
+		}
+	}
+
+	&_section_b {
+		a {
+			margin-left: 12px;
+		}
+	}
+
+	a {
+		color: black;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 24px;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
