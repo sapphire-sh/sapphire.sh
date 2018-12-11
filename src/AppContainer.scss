@@ -1,5 +1,5 @@
 html {
-	font-family: 'Noto Sans', sans-serif;
+	font-family: 'Lato', sans-serif;
 }
 
 body {
@@ -9,6 +9,14 @@ body {
 
 p {
 	margin: 0;
+}
+
+a {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 #app {

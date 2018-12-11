@@ -1,0 +1,10 @@
+.article_border {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	&_line {
+		width: 100%;
+		border-top: 2px solid rgb(127, 127, 127);
+	}
+}

@@ -42,6 +42,7 @@ class AppComponent extends React.Component<ComponentProps> {
 							return (
 								<ArticleComponent
 									id={match!.url.replace(/^\//, '')}
+									isLast={true}
 								/>
 							);
 						}}

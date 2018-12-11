@@ -1,14 +1,25 @@
 import React from 'react';
 
 import ReactMarkdown from 'react-markdown';
-import { getBaseURL } from '~/helpers';
+
+import {
+	ArticleBorderComponent,
+} from '~/components';
+
+import {
+	getBaseURL,
+} from '~/helpers';
+
+import './ArticleComponent.scss';
 
 interface ComponentProps {
 	id: string;
+	isLast: boolean;
 }
 
 interface ComponentState {
-	text: string;
+	metadata: any;
+	markdown: string;
 }
 
 export class ArticleComponent extends React.Component<ComponentProps, ComponentState> {
@@ -19,32 +30,85 @@ export class ArticleComponent extends React.Component<ComponentProps, ComponentS
 			id,
 		} = this.props;
 
-		const text = (require(`${__pages_path}/${id}/index.md`));
+		const markdown = require(`${__pages_path}/${id}/index.md`);
+		const metadata = require(`${__pages_path}/${id}/metadata.json`);
 
 		this.state = {
-			'text': text,
+			'metadata': metadata,
+			'markdown': markdown,
 		};
 	}
 
 	public render() {
 		const {
 			id,
+			isLast,
 		} = this.props;
+
 		const {
-			text,
+			metadata,
+			markdown,
 		} = this.state;
 
 		return (
-			<div>
-				<a
-					href={`${getBaseURL()}/${id}`}
+			<React.Fragment>
+				<div
+					className="article"
 				>
-					{'1234'}
-				</a>
-				<ReactMarkdown
-					source={text}
-				/>
-			</div>
+					<div
+						className="article_header"
+					>
+						<div
+							className="article_title"
+						>
+							<a
+								href={`${getBaseURL()}/${id}`}
+							>
+								{metadata.title}
+							</a>
+						</div>
+						<div
+							className="article_metadata"
+						>
+							<div
+								className="article_date"
+							>
+								{metadata.date}
+							</div>
+							<div
+								className="article_tags"
+							>
+								{metadata.tags.map((tag: string) => {
+									return (
+										<a
+											key={tag}
+											href={`${getBaseURL()}/tags/${tag}`}
+										>
+											{`#${tag}`}
+										</a>
+									);
+								})}
+							</div>
+						</div>
+					</div>
+					<div
+						className="article_content"
+					>
+						<ReactMarkdown
+							source={markdown}
+						/>
+					</div>
+				</div>
+
+				{(() => {
+					if(isLast === true) {
+						return null;
+					}
+					return (
+						<ArticleBorderComponent />
+					);
+				})()}
+			</React.Fragment>
 		);
 	}
 }

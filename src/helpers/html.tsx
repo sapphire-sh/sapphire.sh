@@ -26,7 +26,7 @@ export class HTML extends React.Component<ComponentProps> {
 						charSet="utf-8"
 					/>
 					<link
-						href="https://fonts.googleapis.com/css?family=Noto+Sans"
+						href="https://fonts.googleapis.com/css?family=Lato"
 						rel="stylesheet"
 					/>
 					<link

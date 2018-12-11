@@ -1,0 +1,25 @@
+.article {
+	padding: 24px 0;
+
+	&_metadata {
+		display: flex;
+	}
+
+	&_date {
+		margin-right: 12px;
+	}
+
+	&_tags {
+		> a {
+			margin-right: 4px;
+		}
+	}
+
+	&_title {
+		a {
+			color: black;
+			font-weight: bold;
+			font-size: 48px;
+		}
+	}
+}
