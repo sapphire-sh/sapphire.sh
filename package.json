@@ -26,6 +26,7 @@
     "@types/react-dom": "^16.0.9",
     "@types/react-router": "^4.4.2",
     "css-loader": "^1.0.1",
+    "file-loader": "^2.0.0",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.4",
     "raw-loader": "^0.5.1",

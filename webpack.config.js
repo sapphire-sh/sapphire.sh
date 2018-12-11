@@ -65,6 +65,12 @@ module.exports = {
 					'raw-loader',
 				],
 			},
+			{
+				'test': /\.png$/,
+				'use': [
+					'file-loader',
+				],
+			},
 		],
 	},
 	'devtool': false,

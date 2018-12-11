@@ -1,0 +1,15 @@
+#footer {
+	display: flex;
+	justify-content: space-between;
+	padding: 12px 0;
+	border-top: 1px solid black;
+
+	&_section_a {
+		display: flex;
+		align-items: top;
+
+		> p {
+			margin-right: 4px;
+		}
+	}
+}

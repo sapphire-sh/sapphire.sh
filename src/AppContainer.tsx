@@ -9,6 +9,7 @@ import {
 
 import {
 	HeaderComponent,
+	FooterComponent,
 	MainComponent,
 	NotFoundComponent,
 	ArticleComponent,
@@ -51,6 +52,7 @@ class AppComponent extends React.Component<ComponentProps> {
 						component={NotFoundComponent}
 					/>
 				</Switch>
+				<FooterComponent />
 			</div>
 		);
 	}

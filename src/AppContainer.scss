@@ -12,10 +12,22 @@ p {
 }
 
 a {
+	color: rgb(65, 124, 235);
 	text-decoration: none;
 
 	&:hover {
 		text-decoration: underline;
+	}
+}
+
+.icon {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background-size: 100% 100%;
+
+	&_github {
+		background-image: url('./assets/GitHub-Mark-120px-plus.png');
 	}
 }
 
