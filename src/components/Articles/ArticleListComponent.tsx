@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
 	ArticleComponent,
-} from '../../components';
+} from '~/components';
 
 export class ArticleListComponent extends React.Component {
 	public render() {

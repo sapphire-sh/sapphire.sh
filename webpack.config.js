@@ -55,11 +55,15 @@ module.exports = {
 			'.js',
 			'.json',
 		],
+		'alias': {
+			'~': path.resolve('./src/'),
+		},
 	},
 	'plugins': [
 		new webpack.DefinePlugin({
 			'__dev': process.env.NODE_ENV === 'development',
 			'__test': process.env.NODE_ENV === 'test',
+			'__articles_path': JSON.stringify(articlesPath),
 			'__article_ids': JSON.stringify(articleIDs),
 		}),
 		new MiniCssExtractPlugin({

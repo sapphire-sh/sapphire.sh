@@ -3,9 +3,9 @@ import React from 'react';
 import {
 	ArticleListComponent,
 	HeaderComponent,
-} from '../components';
+} from '~/components';
 
-import '../styles/MainComponent.scss';
+import '~/styles/MainComponent.scss';
 
 export class MainComponent extends React.Component {
 	public render() {

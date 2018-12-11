@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
 	MainComponent,
-} from './components';
+} from '~/components';
 
 export class App extends React.Component {
 	public render() {

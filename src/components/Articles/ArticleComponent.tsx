@@ -24,7 +24,7 @@ export class ArticleComponent extends React.Component<ComponentProps, ComponentS
 			id,
 		} = this.props;
 
-		const text = (await import(`../../../articles/${id}/index.md`)).default;
+		const text = (await import(`${__articles_path}/${id}/index.md`)).default;
 
 		this.setState({
 			'text': text,
