@@ -1,2 +1,3 @@
-export * from './ArticleComponent';
+export * from './Articles';
+export * from './HeaderComponent';
 export * from './MainComponent';

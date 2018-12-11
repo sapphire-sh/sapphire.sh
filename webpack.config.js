@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 
 const webpack = require('webpack');
@@ -5,6 +6,9 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const env = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+
+const articlesPath = path.resolve(__dirname, './articles');
+const articleIDs = fs.readdirSync(articlesPath);
 
 module.exports = {
 	'entry': path.resolve(__dirname, 'src', 'index.tsx'),
@@ -56,6 +60,7 @@ module.exports = {
 		new webpack.DefinePlugin({
 			'__dev': process.env.NODE_ENV === 'development',
 			'__test': process.env.NODE_ENV === 'test',
+			'__article_ids': JSON.stringify(articleIDs),
 		}),
 		new MiniCssExtractPlugin({
 			'filename': 'styles.css',
