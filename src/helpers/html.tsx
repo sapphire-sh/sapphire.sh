@@ -33,6 +33,20 @@ export class HTML extends React.Component<ComponentProps> {
 						rel="stylesheet"
 						href={`${getBaseURL()}/dist/styles.css`}
 					/>
+					<script
+						async={true}
+						src={'https://www.googletagmanager.com/gtag/js?id=UA-85061946-1'}
+					/>
+					<script
+						dangerouslySetInnerHTML={{
+							'__html': [
+								`window.dataLayer = window.dataLayer || [];`,
+								`function gtag(){dataLayer.push(arguments);}`,
+								`gtag('js', new Date());`,
+								`gtag('config', 'UA-85061946-1');`,
+							].join(';'),
+						}}
+					/>
 				</head>
 				<body>
 					<div
