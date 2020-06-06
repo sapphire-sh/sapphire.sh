@@ -8,6 +8,7 @@
     "prebuild": "npm run clean",
     "build": "webpack",
     "generate": "node ./dist/main.js",
+    "start": "ts-node ./src/index.ts",
     "watch": "webpack --watch",
     "lint": "tslint -p ./tsconfig.json"
   },
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/sapphiredev/sapphire.sh#readme",
   "devDependencies": {
+    "@types/express": "^4.17.6",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "@types/react-router": "^5.0.1",
@@ -37,6 +39,7 @@
     "sass-loader": "^7.1.0",
     "scss-loader": "0.0.1",
     "ts-loader": "^6.0.2",
+    "ts-node": "^8.10.2",
     "tslint": "^5.17.0",
     "tslint-react": "^4.0.0",
     "typescript": "^3.5.1",
@@ -44,5 +47,7 @@
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.5.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
