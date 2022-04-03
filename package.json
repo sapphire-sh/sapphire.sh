@@ -1,7 +1,6 @@
 {
   "name": "sapphire.sh",
   "version": "1.0.0",
-  "description": "",
   "main": "index.html",
   "scripts": {
     "clean": "node ./scripts/clean.js",
@@ -9,19 +8,20 @@
     "build": "webpack",
     "generate": "node ./dist/main.js",
     "start": "ts-node ./src/index.ts",
+    "start:prod": "node ./dist/main.js",
     "watch": "webpack --watch",
     "lint": "tslint -p ./tsconfig.json"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sapphiredev/sapphire.sh.git"
+    "url": "git+https://github.com/sapphire-sh/sapphire.sh.git"
   },
   "author": "sapphire",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sapphiredev/sapphire.sh/issues"
+    "url": "https://github.com/sapphire-sh/sapphire.sh/issues"
   },
-  "homepage": "https://github.com/sapphiredev/sapphire.sh#readme",
+  "homepage": "https://github.com/sapphire-sh/sapphire.sh#readme",
   "devDependencies": {
     "@types/express": "^4.17.7",
     "@types/react": "^16.9.46",
